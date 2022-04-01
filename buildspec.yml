@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    S3_BUCKET: dev-practice-s3-bucket
-
 phases:
   install:
     runtime-versions:
@@ -24,4 +20,4 @@ phases:
       - cd dist/customer-app
       - ls -la
       - echo "Deploying your project 🚀"
-      - aws s3 sync . s3://${BUCKET_NAME} --delete
+      - aws s3 sync . s3://dev-practice-s3-bucket --delete
