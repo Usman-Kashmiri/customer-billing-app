@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>
+  <span>
+    <mat-icon>login</mat-icon>
+    Register
+    <button mat-icon-button class="mat-icon" mat-dialog-close="true">
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+  </span>
+</h2>
+<mat-dialog-content>
+  <form [formGroup]="loginForm" autocomplete="off">
+    <mat-form-field aria-label="email">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter Your Name" type="email" formControlName="email">
+      <mat-hint align="end">Example, johndoe@example.com</mat-hint>
+      <mat-error *ngIf="loginForm.get('email').hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email').hasError('email')">
+        Email is invalid
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field aria-label="password">
+      <mat-label>Passowrd</mat-label>
+      <input matInput placeholder="Enter Your Passowrd" type="password" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password').hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+        Password must be at least 6 characters long
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password').hasError('maxlength')">
+        Password must be at most 30 characters long
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close="false">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" [disabled]="!loginForm.valid" (click)="loginUser()">Register</button>
+</mat-dialog-actions>

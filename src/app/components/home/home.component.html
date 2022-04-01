@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="flex-container">
+      <!-- Card#1 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Welcome {{user.name}}!</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>Hope you enjoy your stay!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="info">
+            This page is used to display the overall information of our services, finances and the server.
+          </span>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#2 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Server Health</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current health of the server!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="info">
+            {{server}}
+          </span>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#3 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Users</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current number of the users!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="info">
+            The current number of users is: <b>{{users}}</b> 👥👤
+          </span>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#4 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Categories</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current total number of categories!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          Total Categories: <b>{{categories}} 🐛</b>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#5 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Sub Categories</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current total number of subcategories!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          Total Subcategories: <b>{{subcategories}} 👩‍💻</b>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#6 -->
+      <mat-card (click)="showBills()">
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Total Bills</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current total number of bills and their amount!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          Total Bills: <b>{{bills}}</b> 💷 and Total Amount is: <b>{{ currency | currency}}</b>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#7 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Total Paid Bills</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current total number of paid bills!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          Total Bills Paid: <b>{{paid | currency}} 🥗</b>
+        </mat-card-content>
+      </mat-card>
+      <!-- Card#8 -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Total Unpaid Bills</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>
+              <b>This shows the current total number of unpaid bills!</b>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          Total Bills Unpaid: <b>{{ currency - paid | currency}} 💯</b>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

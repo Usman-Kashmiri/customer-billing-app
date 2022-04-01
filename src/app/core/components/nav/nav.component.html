@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="navbar">
+  <mat-spinner *ngIf="loading"></mat-spinner >
+  <div>Customer Billing Application</div>
+  <div>
+    <span routerLink="home">Home</span>
+    <span *ngIf="!authState">
+      <span (click)="openRegisterDialog()">Register</span>
+      <span (click)="openLoginDialog()">Login</span>
+    </span>
+    <span *ngIf="authState">
+      <span>Bills</span>
+      <span (click)="logout()">Logout</span>
+    </span>
+  </div>
+</mat-toolbar>

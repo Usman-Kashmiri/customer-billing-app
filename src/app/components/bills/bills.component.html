@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="wrapper">
+    <mat-table [dataSource]="bills" class="mat-elevation-z10 table">
+      <!-- Bill Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name }}</td>
+      </ng-container>
+
+      <!-- Bill User Name Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{element['user'].name}}</td>
+      </ng-container>
+
+      <!-- Bill Amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{element.amount | currency }}</td>
+      </ng-container>
+
+      <!-- Bill Paid Column -->
+      <ng-container matColumnDef="paid">
+        <th mat-header-cell *matHeaderCellDef>Paid</th>
+        <td mat-cell *matCellDef="let element">{{ element.paid ? 'Paid' : 'Unpaid' }}</td>
+      </ng-container>
+
+      <!-- Bill Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.category.name }}</td>
+      </ng-container>
+
+      <!-- Bill Sub Category Column -->
+      <ng-container matColumnDef="subcategory">
+        <th mat-header-cell *matHeaderCellDef>Sub Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.subcategory.name }}</td>
+      </ng-container>
+
+      <!-- Bill Due Date Column -->
+      <ng-container matColumnDef="due_date">
+        <th mat-header-cell *matHeaderCellDef>Due Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.due_date }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumn"></tr>
+    </mat-table>
+  </div>
+</div>
