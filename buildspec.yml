@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    S3_BUCKET: dev-practice-s3-bucket
+
 phases:
   install:
     runtime-versions:
@@ -15,3 +19,9 @@ phases:
       - echo "Since there are no tests configured, we won't need any hassle for maintaining it 🤷‍♂️"
       - echo "Your build can't fail if you don't write tests... 💯🚀"
       - ng v
+      - echo "Building your project 🏭🏛"
+      - ng build
+      - cd dist/customer-app
+      - ls -la
+      - echo "Deploying your project 🚀"
+      - aws s3 sync . s3://${BUCKET_NAME} --delete
