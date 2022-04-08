@@ -22,3 +22,6 @@ phases:
       - ls -la
       - echo "Deploying your project 🚀"
       - aws s3 sync . s3://dev-practice-s3-bucket --delete
+      - echo "Your project is deployed 🚀"
+      - echo "Do something good with your project 🤓"
+      - echo "You can find your project at https://s3.amazonaws.com/dev-practice-s3-bucket/customer-app"
